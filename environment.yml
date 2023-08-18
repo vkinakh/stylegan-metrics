@@ -1,0 +1,17 @@
+name: stylegan-metrics
+channels:
+  - defaults
+  - conda-forge
+dependencies:
+  - pip
+  - python==3.10
+  - pip:
+    - click==8.1.7
+    - imageio
+    - numpy==1.25.2
+    - pillow==10.0.0
+    - requests==2.31.0
+    - scipy==1.11.1
+    - torch==2.0.1
+    - torchvision==0.15.2
+    - tqdm==4.66.1

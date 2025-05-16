@@ -49,7 +49,9 @@ def calc_metric(metric: str, path_real: str, path_fake: str, resolution: int, **
 
     # Calculate.
     start_time = time.time()
-    results = _metric_dict[metric](opts, path_real=path_real, path_fake=path_fake, resolution=resolution)
+    results = _metric_dict[metric](
+        opts, path_real=path_real, path_fake=path_fake, resolution=resolution
+    )
     total_time = time.time() - start_time
 
     # Broadcast results.
@@ -117,6 +119,8 @@ def pr(opts, path_real: str, path_fake: str, resolution: int) -> Dict[str, float
 
 
 @register_metric
-def inception_score(opts, path_real: str, path_fake: str, resolution: int) -> Dict[str, float]:
+def inception_score(
+    opts, path_real: str, path_fake: str, resolution: int
+) -> Dict[str, float]:
     is_val, is_std = compute_is_directory(opts, path_fake, resolution, 10)
     return dict(inception_score=is_val, inception_score_std=is_std)
